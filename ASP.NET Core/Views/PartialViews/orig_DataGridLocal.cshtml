@@ -1,0 +1,21 @@
+﻿@(
+Html.DevExtreme().DataGrid()
+    .DataSource(new JS("customers"))
+    .KeyExpr("ID")
+    .RowDragging(drag => drag
+        .AllowReordering(true)
+        .OnDragStart("LocalGrid.dragStart")
+        .OnDragChange("LocalGrid.dragChange")
+        .OnReorder("LocalGrid.reorder")
+        .DragTemplate(new JS("LocalGrid.dragTemplate"))
+    )
+    .Selection(s => s.Mode(SelectionMode.Multiple))
+    .Sorting(s => s.Mode(GridSortingMode.None))
+    .Columns(col => {
+        col.Add().DataField("ID").Width(55);
+        col.Add().DataField("CompanyName");
+        col.Add().DataField("Address");
+        col.Add().DataField("City");
+        col.Add().DataField("State");
+    })
+)

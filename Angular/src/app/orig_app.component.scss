@@ -1,0 +1,20 @@
+.default-style {
+  margin: 50px 50px;
+  width: 90vh;
+}
+.demo-header {
+  display: flex;
+  justify-content: space-between;
+}
+.tab-item-content {
+  margin: auto;
+}
+#toggle-container {
+  padding-top: 20px;
+}
+#clearAfterDropSwitch {
+  vertical-align: text-bottom;
+}
+#toggle-container span {
+  padding-right: 10px;
+}

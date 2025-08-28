@@ -1,0 +1,23 @@
+<div class="demo-header">
+    <h3>DataGrid - Select multiple items and drag'n'drop</h3>
+    <div id="toggle-container">
+        <span>Clear selection after drop</span>
+        @(Html.DevExtreme().Switch().ID("clearAfterDropSwitch"))
+    </div>
+</div>
+@(Html.DevExtreme().TabPanel()
+    .Items(tabs => {
+        tabs.Add().Title("Plain Data")
+            .Template(@<text>
+                <div>
+                    @(await Html.PartialAsync("../PartialViews/DataGridLocal"))
+                    </div>
+                </text>);
+        tabs.Add().Title("Hierarchical Data")
+        .Template(@<text>
+            <div>
+                @(await Html.PartialAsync("../PartialViews/DataGridRemote"))
+                </div>
+            </text>);
+    })
+)

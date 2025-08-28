@@ -1,0 +1,41 @@
+﻿@(
+Html.DevExtreme().DataGrid()
+    .DataSource(d => d.RemoteController()
+        .LoadUrl("https://js.devexpress.com/Demos/Mvc/api/RowReordering/Tasks")
+        .UpdateUrl("https://js.devexpress.com/Demos/Mvc/api/RowReordering/UpdateTask")
+        .OnBeforeSend("RemoteGrid.beforeSend")
+        .Key("ID"))
+    .RemoteOperations(true)
+    .RowDragging(drag => drag
+        .AllowReordering(true)
+        .OnDragStart("RemoteGrid.dragStart")
+        .OnDragChange("RemoteGrid.dragChange")
+        .OnReorder("RemoteGrid.reorder")
+        .DragTemplate(new JS("RemoteGrid.dragTemplate"))
+    )
+    .Selection(s => s.Mode(SelectionMode.Multiple))
+    .Sorting(s => s.Mode(GridSortingMode.None))
+    .Scrolling(s => s.Mode(GridScrollingMode.Virtual))
+    .Height(480)
+    .Columns(columns => {
+        columns.Add().DataField("ID").Width(55);
+        columns.Add().DataField("Owner").Lookup(lookup => lookup
+            .DataSource(d => d.RemoteController()
+                .LoadUrl("https://js.devexpress.com/Demos/Mvc/api/RowReordering/Employees")
+                .Key("ID"))
+            .ValueExpr("ID")
+            .DisplayExpr("FullName")
+        );
+        columns.Add().DataField("AssignedEmployee")
+        .Width(150)
+        .Caption("Assignee")
+        .Lookup(lookup => lookup
+            .DataSource(d => d.RemoteController()
+                .LoadUrl("https://js.devexpress.com/Demos/Mvc/api/RowReordering/Employees")
+                .Key("ID"))
+            .ValueExpr("ID")
+            .DisplayExpr("FullName")
+        );
+        columns.Add().DataField("Subject");
+    })
+)
