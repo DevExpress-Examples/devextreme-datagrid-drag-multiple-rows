@@ -2,3 +2,32 @@
     margin: 50px;
     width: 90vw;
 }
+
+.tab-item-content {
+    margin: auto;
+}
+
+.demo-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#toggle-container {
+    padding-top: 20px;
+}
+
+#clear-after-drop-switch {
+    vertical-align: text-bottom;
+}
+
+#toggle-container span {
+    padding-right: 10px;
+}
+
+.drag-container {
+    padding: 10px;
+}
+
+.drag-container td {
+  padding: 0 10px;
+}

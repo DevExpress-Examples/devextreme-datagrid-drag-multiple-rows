@@ -1,29 +1,25 @@
 @using ASP_NET_Core.Models
 
-<h2>Home</h2>
-
-@(Html.DevExtreme().DataGrid<SampleOrder>()
-    .ShowBorders(true)
-    .DataSource(d => d.Mvc().Controller("SampleData").LoadAction("Get").Key("OrderID"))
-    .Columns(columns => {
-        columns.AddFor(m => m.OrderID);
-        columns.AddFor(m => m.OrderDate);
-        columns.AddFor(m => m.CustomerName);
-        columns.AddFor(m => m.ShipCountry);
-        columns.AddFor(m => m.ShipCity);
+<div class="demo-header">
+    <h3>DataGrid - Select multiple items and drag'n'drop</h3>
+    <div id="toggle-container">
+        <span>Clear selection after drop</span>
+        @(Html.DevExtreme().Switch().ID("clear-after-drop-switch"))
+    </div>
+</div>
+@(Html.DevExtreme().TabPanel()
+    .Items(tabs => {
+        tabs.Add().Title("Local Data")
+            .Template(@<text>
+                <div>
+                    @(await Html.PartialAsync("../PartialViews/DataGridLocal"))
+                    </div>
+                </text>);
+        tabs.Add().Title("Remote Data")
+        .Template(@<text>
+            <div>
+                @(await Html.PartialAsync("../PartialViews/DataGridRemote"))
+                </div>
+            </text>);
     })
-    .Paging(p => p.PageSize(10))
-    .FilterRow(f => f.Visible(true))
-    .HeaderFilter(f => f.Visible(true))
-    .GroupPanel(p => p.Visible(true))
-    .Grouping(g => g.AutoExpandAll(false))
-    .RemoteOperations(true)
-    .Summary(s => s
-        .TotalItems(totalItems => {
-            totalItems.AddFor(m => m.ShipCity).SummaryType(SummaryType.Count);
-        })
-        .GroupItems(groupItems => {
-            groupItems.Add().SummaryType(SummaryType.Count);
-        })
-    )
 )

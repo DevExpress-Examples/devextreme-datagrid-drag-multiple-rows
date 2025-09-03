@@ -1,3 +1,28 @@
 <div class="default-style">
-  <dx-button [text]="buttonText" (onClick)="onClick($event)"></dx-button>
+  <div class="demo-header">
+    <h3>DataGrid - Select multiple items and drag'n'drop</h3>
+    <div id="toggle-container">
+      <span>Clear selection after drop</span>
+      <dx-switch
+        id="clear-after-drop-switch"
+        [(value)]="clearSelectionAfterDrop"
+      ></dx-switch>
+    </div>
+  </div>
+  <dx-tab-panel [deferRendering]="false">
+    <dxi-item title="Local Data">
+      <div *dxTemplate>
+        <grid-local-data
+          [shouldClearSelection]="clearSelectionAfterDrop"
+        ></grid-local-data>
+      </div>
+    </dxi-item>
+    <dxi-item title="Remote Data">
+      <div *dxTemplate>
+        <grid-remote-data
+          [shouldClearSelection]="clearSelectionAfterDrop"
+        ></grid-remote-data>
+      </div>
+    </dxi-item>
+  </dx-tab-panel>
 </div>
