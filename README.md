@@ -43,7 +43,7 @@ Use the [DataGrid.rowDragging](https://js.devexpress.com/Documentation/ApiRefere
 - **NetCore**    
 	- [DataGridLocal.cshtml](<ASP.NET Core/Views/PartialViews/DataGridLocal.cshtml>)
 	- [DataGridRemote.cshtml](<ASP.NET Core/Views/PartialViews/DataGridRemote.cshtml>)
-	- [GridLocal.js.js](<ASP.NET Core/wwwroot/js/GridLocal.js>)
+	- [GridLocal.js](<ASP.NET Core/wwwroot/js/GridLocal.js>)
 	- [GridRemote.js](<ASP.NET Core/wwwroot/js/GridRemote.js>)
 	
 
