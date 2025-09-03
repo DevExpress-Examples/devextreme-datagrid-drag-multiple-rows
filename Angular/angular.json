@@ -19,6 +19,7 @@
           "options": {
             "allowedCommonJsDependencies": [
               "devextreme-quill",
+              "devextreme-aspnet-data-nojquery",
               "jszip",
               "devexpress-diagram",
               "devexpress-gantt"

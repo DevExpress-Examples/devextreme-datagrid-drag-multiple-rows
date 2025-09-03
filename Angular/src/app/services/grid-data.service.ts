@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 
-export class Task {
-  ID: number = 0;
-  AssignedEmployee: number = 0;
-  OrderIndex: number = 0;
-  Owner: number = 0;
-  Priority: number = 0;
-  Status: number = 0;
-  Subject: string = "";
+export interface Task {
+  ID: number;
+  AssignedEmployee: number;
+  OrderIndex: number;
+  Owner: number;
+  Priority: number;
+  Status: number;
+  Subject: string;
 }
 
-export class Customer {
-  ID: number = 0;
-  CompanyName: string = "";
-  Address: string = "";
-  City: string = "";
-  State: string = "";
-  Website: string = "";
+export interface Customer {
+  ID: number;
+  CompanyName: string;
+  Address: string;
+  City: string;
+  State: string;
+  Website: string;
 }
 const customers: Customer[] = [{
   ID: 1,
@@ -41,7 +41,7 @@ const customers: Customer[] = [{
   Website: 'http://www.nowebsitemusic.com',
 }, {
   ID: 4,
-  CompanyName: "Tom's Club",
+  CompanyName: 'Tom\'s Club',
   Address: '999 Lake Drive',
   City: 'Issaquah',
   State: 'Washington',
@@ -105,10 +105,10 @@ const customers: Customer[] = [{
 }];
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GridDataService {
-  getCustomers() : Customer[] {
+  getCustomers(): Customer[] {
     return customers;
   }
 }

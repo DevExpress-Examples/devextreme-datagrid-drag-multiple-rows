@@ -1,4 +1,26 @@
 .default-style {
   margin: 50px;
-  width: 90vw;
+  width: 90vh;
 }
+
+.demo-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tab-item-content {
+  margin: auto;
+}
+
+#toggle-container {
+  padding-top: 20px;
+}
+
+#clear-after-drop-switch {
+  vertical-align: text-bottom;
+}
+
+#toggle-container span {
+  padding-right: 10px;
+}
+
