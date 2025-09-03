@@ -1,8 +1,8 @@
-﻿@(
+@(
 Html.DevExtreme().DataGrid()
     .DataSource(d => d.RemoteController()
-        .LoadUrl("https://js.devexpress.com/Demos/Mvc/api/RowReordering/Tasks")
-        .UpdateUrl("https://js.devexpress.com/Demos/Mvc/api/RowReordering/UpdateTask")
+        .LoadUrl("https://js.devexpress.com/Demos/NetCore/api/DataGridRowReordering/Tasks")
+        .UpdateUrl("https://js.devexpress.com/Demos/NetCore/api/DataGridRowReordering/UpdateTask")
         .OnBeforeSend("RemoteGrid.beforeSend")
         .Key("ID"))
     .RemoteOperations(true)
@@ -21,7 +21,7 @@ Html.DevExtreme().DataGrid()
         columns.Add().DataField("ID").Width(55);
         columns.Add().DataField("Owner").Lookup(lookup => lookup
             .DataSource(d => d.RemoteController()
-                .LoadUrl("https://js.devexpress.com/Demos/Mvc/api/RowReordering/Employees")
+                .LoadUrl("https://js.devexpress.com/Demos/NetCore/api/DataGridRowReordering/Employees")
                 .Key("ID"))
             .ValueExpr("ID")
             .DisplayExpr("FullName")
@@ -31,7 +31,7 @@ Html.DevExtreme().DataGrid()
         .Caption("Assignee")
         .Lookup(lookup => lookup
             .DataSource(d => d.RemoteController()
-                .LoadUrl("https://js.devexpress.com/Demos/Mvc/api/RowReordering/Employees")
+                .LoadUrl("https://js.devexpress.com/Demos/NetCore/api/DataGridRowReordering/Employees")
                 .Key("ID"))
             .ValueExpr("ID")
             .DisplayExpr("FullName")
