@@ -26,18 +26,18 @@ function dragStart(e: DataGridTypes.RowDraggingStartEvent): void {
   e.itemData = getVisibleRowValues(selectedData, e.component);
   e.cancel = !canDrag(e);
 }
-function dragChange(e: DataGridTypes.RowDraggingChangeEvent<Customer, number>): void {
+function dragChange(e: DataGridTypes.RowDraggingChangeEvent): void {
   e.cancel = !canDrop(e);
 }
-function canDrag(e: DataGridTypes.RowDraggingStartEvent<Customer, number>): boolean {
+function canDrag(e: DataGridTypes.RowDraggingStartEvent): boolean {
   const visibleRows = e.component.getVisibleRows();
   return visibleRows.some((r) => r.isSelected && r.rowIndex === e.fromIndex);
 }
-function canDrop(e: DataGridTypes.RowDraggingChangeEvent<Customer, number>): boolean {
+function canDrop(e: DataGridTypes.RowDraggingChangeEvent): boolean {
   const visibleRows = e.component.getVisibleRows();
   return !visibleRows.some((r) => r.isSelected && r.rowIndex === e.toIndex);
 }
-function calculateToIndex(dataArray: Customer[], e: DataGridTypes.RowDraggingChangeEvent<Customer, number>): number {
+function calculateToIndex(dataArray: Customer[], e: DataGridTypes.RowDraggingChangeEvent): number {
   const visibleRows = e.component.getVisibleRows();
   const toIndex = dataArray.findIndex((item) => item[keyExpr] === visibleRows[e.toIndex].data[keyExpr]);
   return e.fromIndex >= e.toIndex ? toIndex : toIndex + 1;

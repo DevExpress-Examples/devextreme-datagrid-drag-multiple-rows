@@ -22,9 +22,8 @@ export function getVisibleRowValues<T, K>(
   const selectedData = rowsData.map((rowData) => {
     const visibleValues: Record<string, CellValue> = {};
     visibleColumns.forEach((column: DataGridTypes.Column) => {
-      const propKey = column.dataField as keyof T;
       if (column.dataField) {
-        visibleValues[propKey as string] = getVisibleCellValue(column, rowData);
+        visibleValues[column.dataField] = getVisibleCellValue(column, rowData);
       }
     });
     return visibleValues;

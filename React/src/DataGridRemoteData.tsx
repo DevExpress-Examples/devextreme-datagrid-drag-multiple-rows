@@ -11,7 +11,7 @@ import type { GridDemoComponentProps } from './App';
 import { getVisibleRowValues } from './utils';
 
 const keyExpr: keyof Task = 'ID';
-const url = 'https://js.devexpress.com/Demos/Mvc/api/RowReordering';
+const url = 'https://js.devexpress.com/Demos/NetCore/api/DataGridRowReordering';
 
 const tasksStore: CustomStore = createStore({
   key: 'ID',
@@ -52,7 +52,7 @@ function DataGridRemoteData(props: GridDemoComponentProps): JSX.Element {
   const canDrag = useCallback((e: DataGridTypes.RowDraggingStartEvent): boolean => {
     if (updateInProgress) return false;
     const visibleRows = e.component.getVisibleRows();
-    return visibleRows.some((r: any) => r.isSelected && r.rowIndex === e.fromIndex);
+    return visibleRows.some((r) => r.isSelected && r.rowIndex === e.fromIndex);
   }, [updateInProgress]);
 
   const dragStart = useCallback((e: DataGridTypes.RowDraggingStartEvent): void => {
