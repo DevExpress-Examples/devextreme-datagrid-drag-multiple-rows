@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
-import { KeyValue } from '@angular/common';
+import { KeyValue, NgFor, KeyValuePipe } from '@angular/common';
 import { Customer, GridDataService } from 'src/app/services/grid-data.service';
 import type {
   DxDataGridTypes,
 } from 'devextreme-angular/ui/data-grid';
+import { DxDataGridModule, DxTemplateModule } from 'devextreme-angular';
 import { getVisibleRowValues } from 'src/app/utils';
 
 @Component({
   selector: 'grid-local-data',
-  standalone: false,
+  imports: [DxDataGridModule, DxTemplateModule, NgFor, KeyValuePipe],
   templateUrl: './data-grid-local-data.component.html',
 })
 export class DataGridLocalDataComponent {

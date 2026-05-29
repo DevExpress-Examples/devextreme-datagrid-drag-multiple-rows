@@ -61,7 +61,6 @@ function DataGridRemoteData(props: GridDemoComponentProps): JSX.Element {
     e.cancel = !canDrag(e);
   }, [canDrag]);
 
-  // eslint-disable-next-line space-before-function-paren
   const updateOrderIndex = useCallback(async (e: DataGridTypes.RowDraggingReorderEvent): Promise<void> => {
     const visibleRows = e.component.getVisibleRows();
     const newOrderIndex = visibleRows[e.toIndex].data.OrderIndex;

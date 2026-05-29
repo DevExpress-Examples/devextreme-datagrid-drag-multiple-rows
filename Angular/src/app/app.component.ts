@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { DxDataGridModule, DxTabPanelModule, DxSwitchModule } from 'devextreme-angular';
+import { DxTabPanelModule, DxSwitchModule, DxTemplateModule } from 'devextreme-angular';
+import { DataGridLocalDataComponent } from './components/data-grid-local-data/data-grid-local-data.component';
+import { DataGridRemoteDataComponent } from './components/data-grid-remote-data/data-grid-remote-data.component';
 
 @Component({
-  imports: [DxDataGridModule, DxTabPanelModule, DxSwitchModule],
+  imports: [DxTabPanelModule, DxSwitchModule, DxTemplateModule, DataGridLocalDataComponent, DataGridRemoteDataComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

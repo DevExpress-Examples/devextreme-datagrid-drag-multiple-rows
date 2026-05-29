@@ -1,17 +1,18 @@
 import { Component, Input } from '@angular/core';
-import { KeyValue } from '@angular/common';
+import { KeyValue, NgFor, KeyValuePipe } from '@angular/common';
 import type {
   DxDataGridTypes,
 } from 'devextreme-angular/ui/data-grid';
 import type CustomStore from 'devextreme/data/custom_store';
 import { createStore } from 'devextreme-aspnet-data-nojquery';
 import { Task } from 'src/app/services/grid-data.service';
+import { DxDataGridModule, DxTemplateModule } from 'devextreme-angular';
 import notify from 'devextreme/ui/notify';
 import { getVisibleRowValues } from 'src/app/utils';
 
 @Component({
   selector: 'grid-remote-data',
-  standalone: false,
+  imports: [DxDataGridModule, DxTemplateModule, NgFor, KeyValuePipe],
   templateUrl: './data-grid-remote-data.component.html',
 })
 export class DataGridRemoteDataComponent {
