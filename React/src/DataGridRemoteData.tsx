@@ -38,12 +38,12 @@ function draggedItemsRender(data: DragTemplateData): JSX.Element {
     <tbody>{draggedItems}</tbody>
   </table>);
 }
-function dragChange(e: DataGridTypes.RowDraggingChangeEvent): void {
-  e.cancel = !canDrop(e);
-}
 function canDrop(e: DataGridTypes.RowDraggingChangeEvent): boolean {
   const visibleRows = e.component.getVisibleRows();
   return !visibleRows.some((r) => r.isSelected && r.rowIndex === e.toIndex);
+}
+function dragChange(e: DataGridTypes.RowDraggingChangeEvent): void {
+  e.cancel = !canDrop(e);
 }
 
 function DataGridRemoteData(props: GridDemoComponentProps): JSX.Element {

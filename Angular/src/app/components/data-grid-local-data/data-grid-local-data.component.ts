@@ -5,7 +5,6 @@ import type {
   DxDataGridTypes,
 } from 'devextreme-angular/ui/data-grid';
 import { getVisibleRowValues } from 'src/app/utils';
-import notify from 'devextreme/ui/notify';
 
 @Component({
   selector: 'grid-local-data',
@@ -66,7 +65,7 @@ export class DataGridLocalDataComponent {
     return e.fromIndex >= e.toIndex ? toIndex : toIndex + 1;
   }
 
-  originalOrder(a: KeyValue<number, string>, b: KeyValue<number, string>): number {
+  originalOrder(_a: KeyValue<number, string>, _b: KeyValue<number, string>): number {
     return 0;
   }
 }

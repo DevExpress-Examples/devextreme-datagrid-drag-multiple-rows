@@ -96,7 +96,7 @@ export class DataGridRemoteDataComponent {
     return !visibleRows.some((r) => r.isSelected && r.rowIndex === e.toIndex);
   }
 
-  originalOrder(a: KeyValue<number, string>, b: KeyValue<number, string>): number {
+  originalOrder(_a: KeyValue<number, string>, _b: KeyValue<number, string>): number {
     return 0;
   }
 }

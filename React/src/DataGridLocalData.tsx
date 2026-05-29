@@ -21,14 +21,6 @@ function draggedItemsRender(data: DragTemplateData): JSX.Element {
   </table>);
 }
 
-function dragStart(e: DataGridTypes.RowDraggingStartEvent): void {
-  const selectedData: Customer[] = e.component.getSelectedRowsData();
-  e.itemData = getVisibleRowValues(selectedData, e.component);
-  e.cancel = !canDrag(e);
-}
-function dragChange(e: DataGridTypes.RowDraggingChangeEvent): void {
-  e.cancel = !canDrop(e);
-}
 function canDrag(e: DataGridTypes.RowDraggingStartEvent): boolean {
   const visibleRows = e.component.getVisibleRows();
   return visibleRows.some((r) => r.isSelected && r.rowIndex === e.fromIndex);
@@ -36,6 +28,14 @@ function canDrag(e: DataGridTypes.RowDraggingStartEvent): boolean {
 function canDrop(e: DataGridTypes.RowDraggingChangeEvent): boolean {
   const visibleRows = e.component.getVisibleRows();
   return !visibleRows.some((r) => r.isSelected && r.rowIndex === e.toIndex);
+}
+function dragStart(e: DataGridTypes.RowDraggingStartEvent): void {
+  const selectedData: Customer[] = e.component.getSelectedRowsData();
+  e.itemData = getVisibleRowValues(selectedData, e.component);
+  e.cancel = !canDrag(e);
+}
+function dragChange(e: DataGridTypes.RowDraggingChangeEvent): void {
+  e.cancel = !canDrop(e);
 }
 function calculateToIndex(dataArray: Customer[], e: DataGridTypes.RowDraggingChangeEvent): number {
   const visibleRows = e.component.getVisibleRows();
