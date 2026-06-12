@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { KeyValue, NgFor, KeyValuePipe } from '@angular/common';
 import { Customer, GridDataService } from 'src/app/services/grid-data.service';
 import type {
@@ -10,6 +10,7 @@ import { getVisibleRowValues } from 'src/app/utils';
 @Component({
   selector: 'grid-local-data',
   imports: [DxDataGridModule, DxTemplateModule, NgFor, KeyValuePipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './data-grid-local-data.component.html',
 })
 export class DataGridLocalDataComponent {

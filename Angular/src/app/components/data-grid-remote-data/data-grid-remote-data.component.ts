@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { KeyValue, NgFor, KeyValuePipe } from '@angular/common';
 import type {
   DxDataGridTypes,
@@ -13,6 +13,7 @@ import { getVisibleRowValues } from 'src/app/utils';
 @Component({
   selector: 'grid-remote-data',
   imports: [DxDataGridModule, DxTemplateModule, NgFor, KeyValuePipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './data-grid-remote-data.component.html',
 })
 export class DataGridRemoteDataComponent {
